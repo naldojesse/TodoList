@@ -36,9 +36,13 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 # importing CreateView generic view for creating tasks
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
-    fields = "__all__"
-    # fields = ['title', 'description' ]
+    # fields = "__all__"
+    fields = ['title', 'description', 'complete' ]
     success_url = reverse_lazy('task')
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(TaskCreate, self).form_valid(form)
     
 class TaskUpdate(LoginRequiredMixin, UpdateView): 
     model = Task
