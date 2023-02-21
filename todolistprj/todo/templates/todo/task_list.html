@@ -8,7 +8,11 @@
 
 
 <h1> My Todo List </h1>
-<td><a href="{% url 'task-create' %}">Add</a></td>
+<form action="" method="get">
+    <input type="text" name="search-area">
+    <input type="submit" value="Search Task">
+</form>
+{% comment %} <td><a href="{% url 'task-create' %}">Add</a></td> {% endcomment %}
 
 <table>
     <tr>
@@ -24,6 +28,6 @@
     </tr>
     {% empty %}
     <h3> No Items in List </h3>
-    <a href="">Add New Item</a>
+    <a href="{% url 'task-create' %}">Add New Item</a>
     {% endfor %}
 </table>
