@@ -1,3 +1,7 @@
+{% extends 'todo/main.html' %}
+
+{% block content %}
+
 <h1>Task Form</h1>
 
 <form action="" method="post">
@@ -7,3 +11,4 @@
 </form>
 
 <a href="{% url 'task' %}"> Go Back</a>
+{% endblock content %}
